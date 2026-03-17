@@ -1,0 +1,97 @@
+@use "../base/variables" as v;
+@use "../base/mixin-responsive" as m;
+@use "../base/mixin-grid-flex" as mgf;
+
+.body-contact {
+  background-color: map-get(map-get(v.$color, solid-colors), c-bg-contact);
+
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: 1fr auto;
+  grid-auto-rows: auto;
+  row-gap: 4rem;
+}
+
+.contact {
+  margin-top: calc(clamp(2.5rem, 12vw + 1rem, 6.7rem) * 1.3);
+  background-color: transparent;
+  color: map-get(map-get(v.$color, solid-colors), c-light);
+
+  &__title {
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  &__header {
+    @include mgf.flexbox(column, unset, center);
+
+    a:nth-child(2) {
+      margin-top: 2rem;
+    }
+  }
+
+  @include m.responsive(desk) {
+    &__form-info {
+      @include mgf.flexbox(row, space-between);
+
+      div {
+        @include mgf.flexbox(column);
+        width: calc(100% / 2.05);
+      }
+    }
+  }
+
+  &__form-section {
+    margin-top: clamp(2.5rem, 12vw + 1rem, 6.7rem);
+    margin-bottom: clamp(2.5rem, 12vw + 1rem, 6.7rem);
+  }
+
+  &__container input,
+  &__container textarea {
+    border: none;
+  }
+  &__container input,
+  &__container textarea,
+  .contact__button {
+    // background-color: red;
+    padding: 1rem 2.4rem;
+    border-radius: 0.358rem;
+    -webkit-border-radius: 0.358rem;
+    -moz-border-radius: 0.358rem;
+    -ms-border-radius: 0.358rem;
+    -o-border-radius: 0.358rem;
+    width: -webkit-fill-available;
+  }
+
+  &__container label,
+  &__button {
+    margin-top: 1.5rem;
+  }
+  &__container textarea {
+    resize: none;
+    field-sizing: content;
+    //height: max(30rem, min-content);
+    min-height: 6rem;
+    max-height: 20rem;
+  }
+
+  &__button {
+    color: white;
+    text-align: center;
+    background-color: map-get(map-get(v.$color, solid-colors), c-dark);
+    border-radius: 0.358rem;
+    -webkit-border-radius: 0.358rem;
+    -moz-border-radius: 0.358rem;
+    -ms-border-radius: 0.358rem;
+    -o-border-radius: 0.358rem;
+    filter: invert(0);
+    -webkit-filter: invert(0);
+    border: 0.358rem solid white;
+    &:hover {
+      color: map-get(map-get(v.$color, solid-colors), c-hgl-hover);
+      border: 0.358rem map-get(map-get(v.$color, solid-colors), c-hgl-hover)
+        solid;
+      background-color: map-get(map-get(v.$color, solid-colors), c-dark);
+    }
+  }
+}

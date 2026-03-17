@@ -1,0 +1,276 @@
+@use "../base/variables" as v;
+@use "../base/mixin-responsive" as m;
+@use "../base/mixin-grid-flex" as mgf;
+
+.k-about {
+  &__container {
+    max-height: 24.8rem;
+    @include m.responsive(tablet) {
+      @include mgf.flexbox(row, space-evenly);
+    }
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      @include m.responsive(tablet) {
+        background: linear-gradient(
+          180deg,
+          #301a0000 25%,
+          #301a0011 45%,
+          #301a00 99.999%
+        );
+      }
+
+      //background-color: red;
+      //box-shadow: map-get(map-get(v.$shadows, cards), sh-hero-blr);
+      //background-color: red;
+      z-index: 3;
+      margin: auto;
+      width: min(100vw, max(128rem, 0vw));
+      height: 100%;
+      @include m.responsive(desk) {
+        border-radius: 0 0 1.5rem 1.5rem;
+        -webkit-border-radius: 0 0 1.5rem 1.5rem;
+        -moz-border-radius: 0 0 1.5rem 1.5rem;
+        -ms-border-radius: 0 0 1.5rem 1.5rem;
+        -o-border-radius: 0 0 1.5rem 1.5rem;
+      }
+    }
+  }
+
+  &__content {
+    position: absolute;
+    background-color: map-get(map-get(v.$color, solid-colors), c-filter-canvas);
+    inset: 0;
+    z-index: 4;
+
+    @include m.responsive(tablet) {
+      background-color: map-get(map-get(v.$color, solid-colors), c-filter-form);
+      border-radius: 1.5rem 0 0 0;
+      -webkit-border-radius: 1.5rem 0 0 0;
+      -moz-border-radius: 1.5rem 0 0 0;
+      -ms-border-radius: 1.5rem 0 0 0;
+      -o-border-radius: 1.5rem 0 0 0;
+      position: unset;
+      inset: unset;
+
+      @include m.responsive(desk) {
+        border-radius: 0 1.5rem 1.5rem 0;
+        -webkit-border-radius: 0 1.5rem 1.5rem 0;
+        -moz-border-radius: 0 1.5rem 1.5rem 0;
+        -ms-border-radius: 0 1.5rem 1.5rem 0;
+        -o-border-radius: 0 1.5rem 1.5rem 0;
+      }
+    }
+
+    @include mgf.flexbox(column, space-around, center);
+    text-align: center;
+  }
+}
+
+.intro {
+  text-align: center;
+
+  &__image {
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+  }
+
+  img[alt*="services"] {
+    backdrop-filter: drop-shadow(0px 11px 7.8px rgba(0, 0, 0, 0.97));
+    -webkit-filter: drop-shadow(0px 11px 7.8px rgba(0, 0, 0, 0.97));
+  }
+
+  &__animal {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      -webkit-border-radius: 1rem;
+      -moz-border-radius: 1rem;
+      -ms-border-radius: 1rem;
+      -o-border-radius: 1rem;
+    }
+  }
+
+  &__content {
+    position: relative;
+    border-radius: 2.5rem;
+    -webkit-border-radius: 2.5rem;
+    -moz-border-radius: 2.5rem;
+    -ms-border-radius: 2.5rem;
+    -o-border-radius: 2.5rem;
+    & .intro__details {
+      background: linear-gradient(
+        180deg,
+        #ebebeb00 33.333%,
+        #ebebeb96 66%,
+        #ebebeb 100%
+      );
+
+      box-shadow: map-get(map-get(v.$shadows, cards), sh-hero-bottom);
+
+      position: absolute;
+      top: min(20rem, 33.333%);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      @include mgf.flexbox(column, space-around, center);
+    }
+    & .intro__details:has(.intro__description:first-child) {
+      box-shadow: map-get(map-get(v.$shadows, cards), sh-hero-bottom);
+
+      position: absolute;
+      inset: 0;
+      left: 0;
+      right: 0;
+      @include mgf.flexbox(column, space-around, center);
+
+      p {
+        padding-top: 3rem;
+      }
+
+      // background: linear-gradient(
+      //   180deg,
+      //   #ebebeb00 0.1%,
+      //   #ebebeb4d 46%,
+      //   #ebebeb99 100%
+      // );
+    }
+  }
+
+  &__section--presentation {
+    position: relative;
+    // background-color: red;
+  }
+
+  &__presentation {
+    @include mgf.flexbox(column, space-around, center);
+
+    padding: 3rem;
+    p {
+      background: linear-gradient(180deg, #000 50%, #fff 50%, #fff 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 3rem;
+      font-size: calc(clamp(1.4rem, 0.80645vw + 1rem, 1.8rem) + 0.358rem);
+      z-index: 1;
+    }
+  }
+  &__presentation::after {
+    position: absolute;
+    content: "?";
+    inset: -30.5% 0 0 0;
+    font-size: calc(
+      map-get(map-get(v.$font-sizes, headings), main-heading) + 35.8rem
+    );
+    color: #424242;
+
+    opacity: 0.7;
+
+    @include mgf.flexbox(column, space-around, center);
+
+    background: linear-gradient(180deg, #ebebeb 30%, #9c9c9c 50%, #000000 100%);
+
+    z-index: -1;
+  }
+}
+
+.intro:has(.intro__animal) {
+  order: unset;
+  @include m.responsive(tablet) {
+    @include mgf.grid-responsive-infinite(27.3rem, 1fr, 2rem);
+  }
+
+  @include m.responsive(desk) {
+    @include mgf.grid-responsive-infinite(calc(59.2rem / 2), 1fr, 2rem);
+  }
+}
+
+.intro--index,
+.intro--services,
+.intro--habitats {
+  @include m.responsive(desk) {
+    @include mgf.flexbox(row, space-between, center, wrap-reverse, 1rem);
+
+    .intro__section:nth-child(1) {
+      order: 3;
+    }
+  }
+}
+
+.animal {
+  margin: 5rem auto;
+  order: unset;
+
+  @include m.responsive(tablet) {
+    @include mgf.grid(2, auto, 2rem);
+  }
+
+  &__card {
+    max-height: fit-content;
+
+    @include mgf.flexbox(column, space-around, center);
+    color: map-get(map-get(v.$color, solid-colors), c-light);
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    background-color: map-get(map-get(v.$color, solid-colors), c-filter-form);
+    border: map-get(map-get(v.$color, solid-colors), c-border-card-d) 0.3rem
+      solid;
+
+    @include m.responsive(tablet) {
+      border: map-get(map-get(v.$color, solid-colors), c-border-card-d) 0.5rem
+        solid;
+    }
+    @include m.responsive(desk) {
+      border: map-get(map-get(v.$color, solid-colors), c-border-card-d) 0.7rem
+        solid;
+    }
+    h2 {
+      color: map-get(map-get(v.$color, solid-colors), c-mustard-title);
+    }
+
+    p {
+      color: map-get(map-get(v.$color, solid-colors), c-paraph-animal);
+      padding: 0 0.5rem;
+    }
+  }
+
+  &__table {
+    // background-color: red;
+    tbody {
+      @include mgf.flexbox(column, space-between);
+      // background-color: royalblue;
+      height: 100%;
+    }
+
+    tr {
+      @include mgf.flexbox(row, space-between);
+
+      // background-color: fuchsia;
+      border-bottom: #ebebeb 0.158rem solid;
+
+      th {
+        letter-spacing: calc(
+          map-get(map-get(v.$font-spaces, letter-spacings), ls-p-main-heading) -
+            0.358rem
+        );
+      }
+      td {
+        color: map-get(map-get(v.$color, solid-colors), c-highlight-1);
+      }
+
+      margin: auto;
+    }
+  }
+}

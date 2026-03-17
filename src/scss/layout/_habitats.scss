@@ -1,0 +1,80 @@
+@use "../base/variables" as v;
+@use "../base/mixin-responsive" as m;
+@use "../base/mixin-grid-flex" as mgf;
+
+.habitat-info {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  text-align: center;
+
+  &__title {
+    font-family: map-get(map-get(v.$path-fonts-formats, family-font), h1-font) !important;
+    color: map-get(map-get(v.$color, solid-colors), c-filter-form); // Marrón oscuro
+    font-size: 4rem; // Más grande
+    font-weight: 700;
+    text-shadow: 2px 2px 0px map-get(map-get(v.$color, solid-colors), c-mustard-title); // Sombra amarilla
+    position: relative;
+    padding-bottom: 1.5rem;
+    margin-bottom: 3rem !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 8px;
+      // Gradiente verde (colores del zoo)
+      background: linear-gradient(90deg, map-get(map-get(v.$color, solid-colors), c-button-footer), map-get(map-get(v.$color, solid-colors), c-highlight-2));
+      border-radius: 4px;
+    }
+
+    @include m.responsive(tablet) {
+      font-size: 6rem;
+    }
+  }
+
+  &__desc-container {
+    background-color: map-get(map-get(v.$color, solid-colors), c-filter-form); // Fondo marrón oscuro
+    padding: 4rem 3rem;
+    border-radius: 2rem;
+    // Sombra estilo Hero (o similar)
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4); 
+    margin: 0 auto;
+    max-width: 900px;
+    // Borde superior mostaza
+    border-top: 8px solid map-get(map-get(v.$color, solid-colors), c-mustard-title);
+    position: relative;
+    
+    // Comillas decorativas gigantes
+    &::before {
+      content: '"';
+      font-family: serif;
+      font-size: 10rem;
+      color: rgba(map-get(map-get(v.$color, solid-colors), c-mustard-title), 0.2); // Mostaza transparente
+      position: absolute;
+      top: -4rem;
+      left: 2rem;
+      line-height: 1;
+    }
+  }
+
+  &__desc {
+    font-family: map-get(map-get(v.$path-fonts-formats, family-font), paragraph-font) !important;
+    color: map-get(map-get(v.$color, solid-colors), c-light); // Texto blanco
+    font-size: 1.8rem;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+
+    @include m.responsive(tablet) {
+      font-size: 2.2rem;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo Arcadia - Mobile App Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 { color: #2c3e50; }
+        p { color: #666; }
+        
+        /* Grid de tarjetas */
+        #animals-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tarjeta de animal */
+        .animal-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .animal-card:hover {
+            transform: translateY(-5px);
+        }
+        .animal-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+        .animal-info {
+            padding: 15px;
+        }
+        .animal-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            color: #1a1a1a;
+        }
+        .animal-meta {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background-color: #e2e8f0;
+            color: #475569;
+        }
+        
+        /* Loading y Error */
+        .loading { text-align: center; font-size: 1.2rem; margin-top: 50px; }
+        .error { color: #e53e3e; text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📱 Simulated App Visitors</h1>
+        <p>These data are loaded dynamically from <code>/api/animals</code> using JavaScript</p>
+    </header>
+
+    <div id="animals-container">
+        <div class="loading">Loading data from the API... ⏳</div>
+    </div>
+
+    <script>
+        // This function consumes your API
+        async function fetchAnimals() {
+            const container = document.getElementById('animals-container');
+            
+            try {
+                // 1. Request to your REST API
+                const response = await fetch('/api/animals');
+                const result = await response.json();
+
+                // 2. Clean the container
+                container.innerHTML = '';
+
+                // 3. Check if there are data
+                if (!result.data || result.data.length === 0) {
+                    container.innerHTML = '<div class="error">No animals found.</div>';
+                    return;
+                }
+
+                // 4. Create cards for each animal
+                result.data.forEach(animal => {
+                    const card = document.createElement('div');
+                    card.className = 'animal-card';
+                    
+                    // Default image if there is no image
+                    const imageSrc = animal.image_medium || animal.image || 'https://via.placeholder.com/300x200?text=No+Image';
+
+                    card.innerHTML = `
+                        <img src="${imageSrc}" alt="${animal.name}" class="animal-img" onerror="this.src='https://via.placeholder.com/300x200?text=Error+Carga'">
+                        <div class="animal-info">
+                            <h3 class="animal-name">${animal.name}</h3>
+                            <div class="animal-meta">🔬 ${animal.species}</div>
+                            <div class="animal-meta">🏠 ${animal.habitat || 'without habitat'}</div>
+                            <span class="badge">${animal.category || 'General'}</span>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error:', error);
+                container.innerHTML = `
+                    <div class="error">
+                        ❌ Error connecting to the API.<br>
+                        Make sure the server is running on localhost:8080 (or the port you use).
+                    </div>`;
+            }
+        }
+
+        // Execute when loading
+        fetchAnimals();
+    </script>
+</body>
+</html>

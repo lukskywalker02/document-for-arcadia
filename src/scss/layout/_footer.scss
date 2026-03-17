@@ -1,0 +1,40 @@
+@use "../base/variables" as v;
+@use "../base/mixin-responsive" as m;
+@use "../base/mixin-grid-flex" as mgf;
+
+.footer {
+  background-color: map-get(map-get(v.$color, solid-colors), c-button-footer);
+
+
+
+  &__hours {
+    color: map-get(map-get(v.$color, solid-colors), c-light);
+    @include mgf.flexbox(column, center);
+
+    @include m.responsive(tablet) {
+      @include mgf.flexbox(row, space-evenly, center);      
+    }
+    @include m.responsive(desk) {
+      justify-content: space-evenly;
+    }
+
+    &-table {
+      tbody {
+        tr {
+          @include mgf.flexbox(row, space-between);
+        }
+      }
+    }
+  }
+
+  &__location {
+    @include mgf.flexbox(column, space-between, center);
+    &-details {
+      @include mgf.flexbox(column, space-between, center);
+    }
+
+    & div:nth-child(2) {
+      @include mgf.flexbox(column, center, center);
+    }
+  }
+}

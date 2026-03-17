@@ -1,0 +1,91 @@
+$path-fonts-formats: (
+  // Fonts
+  family-font:
+    (
+      h1-font: "Fun-City-Level-3-Basic",
+      h2-font: "Poppins-Bold",
+      h3-font: "Montserrat-Bold",
+      h4-font: "Roboto-Medium",
+      paragraph-font: "Roboto-Regular",
+      button-font: "Raleway-Bold",
+      normal-font: "Inter-24",
+      menu-font: "Poppins-Medium",
+    ),
+  // Fonts
+  // Path of the font
+  path-font:
+    (
+      h1-path: "/src/assets/fonts/Fun-City-Level-3-Basic.ttf",
+      h2-path: "/src/assets/fonts/Poppins-Bold.ttf",
+      h3-path: "/src/assets/fonts/Montserrat-Bold.ttf",
+      h4-path: "/src/assets/fonts/Roboto-Medium.ttf",
+      paragraph-path: "/src/assets/fonts/Roboto-Regular.ttf",
+      button-path: "/src/assets/fonts/Raleway-Bold.ttf",
+      normal-font-path: "/src/assets/fonts/Inter_24pt-Medium.ttf",
+      menu-font-path: "/src/assets/fonts/Poppins-Medium.ttf",
+    ),
+  // Path of the font
+  // format of the font
+  format-font:
+    (
+      ttf-format: "truetype",
+    )
+    // format of the font
+);
+
+@font-face {
+  font-family: map-get(map-get($path-fonts-formats, family-font), h1-font);
+  src: url(#{map-get(map-get($path-fonts-formats, path-font), h1-path)})
+    format(#{map-get(map-get($path-fonts-formats, format-font), ttf-format)});
+  font-display: swap;
+};
+
+
+@font-face {
+  font-family: map-get(map-get($path-fonts-formats, family-font), h2-font);
+  src: url(#{map-get(map-get($path-fonts-formats, path-font), h2-path)})
+    format(#{map-get(map-get($path-fonts-formats, format-font), ttf-format)});
+  font-display: swap;
+};
+
+@font-face {
+  font-family: map-get(map-get($path-fonts-formats, family-font), h3-font);
+  src: url(#{map-get(map-get($path-fonts-formats, path-font), h3-path)})
+    format(#{map-get(map-get($path-fonts-formats, format-font), ttf-format)});
+  font-display: swap;
+};
+
+@font-face {
+  font-family: map-get(map-get($path-fonts-formats, family-font), h4-font);
+  src: url(#{map-get(map-get($path-fonts-formats, path-font), h4-path)})
+    format(#{map-get(map-get($path-fonts-formats, format-font), ttf-format)});
+  font-display: swap;
+};
+
+@font-face {
+  font-family: map-get(map-get($path-fonts-formats, family-font), paragraph-font);
+  src: url(#{map-get(map-get($path-fonts-formats, path-font), paragraph-path)})
+    format(#{map-get(map-get($path-fonts-formats, format-font), ttf-format)});
+  font-display: swap;
+};
+
+@font-face {
+  font-family: map-get(map-get($path-fonts-formats, family-font), button-font);
+  src: url(#{map-get(map-get($path-fonts-formats, path-font), button-path)})
+    format(#{map-get(map-get($path-fonts-formats, format-font), ttf-format)});
+  font-display: swap;
+};
+
+@font-face {
+  font-family: map-get(map-get($path-fonts-formats, family-font), normal-font);
+  src: url(#{map-get(map-get($path-fonts-formats, path-font), normal-font-path)})
+    format(#{map-get(map-get($path-fonts-formats, format-font), ttf-format)});
+  font-display: swap;
+};
+
+@font-face {
+  font-family: map-get(map-get($path-fonts-formats, family-font), menu-font);
+  src: url(#{map-get(map-get($path-fonts-formats, path-font), menu-font-path)})
+    format(#{map-get(map-get($path-fonts-formats, format-font), ttf-format)});
+  font-display: swap;
+};

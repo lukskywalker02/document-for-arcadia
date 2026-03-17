@@ -1,0 +1,15 @@
+# Apache .htaccess para Zoo Arcadia
+# Redirige todas las peticiones a index.php para el routing
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Si el archivo o directorio existe, servirlo directamente (esto tiene prioridad)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    
+    # Redirigir todo lo demás a index.php
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+

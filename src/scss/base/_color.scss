@@ -1,0 +1,35 @@
+// Colors
+
+$color: (
+  solid-colors: (
+    c-light: #fff,
+    c-dark: #000,
+    c-body-light: #ebebeb,
+    c-body-dark: #141414,
+    c-highlight-1: #2ed6ff,
+    c-highlight-2: #00ffbf,
+    c-filter-form: #301a00,
+    c-filter-canvas: #42240079,
+    c-bg-contact: #5f0039,
+    c-button-more: #aa6b1f,
+    c-hgl-hover: #ffff00,
+    c-button-footer: #345813,
+    c-paraph-animal: #fdff7c,
+    c-filter-by: #0e0570,
+    c-border-card-d: #3a506b,
+    c-mustard-title: #ffd700,
+  ),
+  cover-img: (
+    cover-black: #00000053,
+    cover-white: #ffffff53,
+  ),
+
+  blur: (
+    blur: blur(5.050000190734863px),
+    blur-panda: (
+      blur(6.4000000953674316px) opacity(0.666),
+    ),
+  ),
+);
+
+// Colors

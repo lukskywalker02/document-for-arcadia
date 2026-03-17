@@ -1,0 +1,95 @@
+@use "../base/variables" as v;
+@use "../base/mixin-responsive" as m;
+@use "../base/mixin-grid-flex" as mgf;
+
+.hero-carousel {
+  .hero__container {
+    .intro__button--hours {
+      align-self: start;
+
+      @include mgf.grid-position(3, 3, 3, 4);
+      @include m.responsive(tablet) {
+        @include mgf.grid-position(3, 4, 3, 4);
+      }
+    }
+  }
+
+  .carousel {
+    position: relative;
+    
+
+    &-indicators {
+      bottom: -2rem;
+
+      z-index: 701;
+      filter: invert(1);
+      -webkit-filter: invert(1);
+    }
+
+    &:has(img[alt*="carousel image"]):not(img[alt*="monkey"])::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        #ebebeb00 80%,
+        #ebebeb 85%,
+        #ebebeb 100%
+      );
+      // box-shadow: map-get(map-get(v.$shadows, cards), sh-hero-blr);
+      // background-color: red;
+      z-index: 3;
+      margin: auto;
+      width: min(100vw, max(128rem, 0vw));
+      height: 100%;
+      @include m.responsive(desk) {
+        box-shadow: map-get(map-get(v.$shadows, cards), sh-hero-blr-car);
+        // background-color: yellow;
+      }
+    }
+
+    &-caption {
+      left: 0;
+      right: 0;
+      bottom: 5.3333%;
+      z-index: 10;
+      text-align: center;
+      background-color: map-get(map-get(v.$color, cover-img), cover-black);
+      border-radius: 2.358rem;
+      -webkit-border-radius: 2.358rem;
+      -moz-border-radius: 2.358rem;
+      -ms-border-radius: 2.358rem;
+      -o-border-radius: 2.358rem;
+
+      @include mgf.flexbox(column, space-around);
+
+      @include m.responsive(tablet) {
+        left: calc(50vw - 27rem);
+        right: calc(50vw - 27rem);
+      }
+      @include m.responsive(desk) {
+        left: calc(50vw - 32rem);
+        right: calc(50vw - 32rem);
+      }
+      backdrop-filter: map-get(map-get(v.$color, blur), blur);
+    }
+  }
+
+  .controls-carousel {
+    //background-color: purple;
+    @include mgf.flexbox(auto, space-between);
+
+
+    inset: 0;
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      //position: absolute;
+      z-index: 701;
+      filter: invert(1);
+      -webkit-filter: invert(1);
+
+      
+    }
+  }
+}

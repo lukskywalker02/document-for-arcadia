@@ -1,0 +1,2 @@
+-- Script temporal para arreglar 03_constraints.sql
+-- Comentar todas las líneas DROP FOREIGN KEY IF EXISTS

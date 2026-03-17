@@ -1,0 +1,36 @@
+# Git metadata
+.git/
+.gitignore
+
+# Dependencies (installed fresh inside container)
+node_modules/
+vendor/
+
+# Environment secrets
+.env
+.env.local
+.env.*.local
+
+# Documentation not needed in production container
+docs/
+README.md
+*.md
+
+# Editor/IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Docker configuration itself (not needed inside container)
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Logs
+*.log
+npm-debug.log
+
+# NOTE: public/build/ is copied to container to reuse compiled assets

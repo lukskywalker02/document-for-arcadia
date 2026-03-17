@@ -1,0 +1,57 @@
+$shadows: (
+  // Sombras de texto
+  texts: (
+    // Sombra de texto para los H1
+    h1-shadow: (
+      0.0rem -0.0rem 0.4rem #ffffff, 
+      0.0rem -0.0rem 0.69rem #ffffff,
+      0.0rem -0.0rem 0.80rem #ffffff,
+      0.0rem -0.0rem 0.99rem #ffffff
+    ),
+    // Shadows of texts on cards
+    sh-desc-section: (
+      // 0rem 0rem 0.001rem #e37115, 
+      // 0rem 0rem 0.57rem #e37115,  
+      // 0rem 0rem 0.98rem #e37115      
+      0rem 0rem 0.001rem #000000, 
+      0rem 0rem 0.57rem #000000,  
+      0rem 0rem 0.98rem #000000      
+    ),
+  ),
+
+  btn: (
+    // Sombras de botones
+    btn-sh: 0.3rem 0.1rem 0.78rem 0rem #000000,            // (3px, 1px, 7.8px -> 0.3rem, 0.1rem, 0.78rem)
+    btn-sh-active: -0.3rem -0.1rem 0.78rem 0rem #000000 inset // (idem)
+  ),
+
+  // Sombras de menús
+  menu-blur: (
+    // Blur del menú
+    blur-menu: blur(1.01rem) // (10.1px -> 1.01rem)
+  ),
+
+  // Sombras de secciones (Shadow of sections)
+  cards: (
+    // Sombra Hero desde abajo
+    sh-hero-bottom: 0rem -17.2rem 5.92rem -11.2rem #ebebeb inset, // (172px, 59.2px, 112px -> 17.2rem, 5.92rem, 11.2rem)
+    sh-hero-blr: (
+      0rem -17.2rem 5.92rem -11.2rem #ebebeb inset,
+      17.2rem 0rem 5.92rem -11.2rem #ebebeb inset,
+      -17.2rem 0rem 5.92rem -11.2rem #ebebeb inset
+    ),
+    sh-hero-blr-car: (
+      0rem -17.2rem 7.92rem -11.2rem #ebebeb inset,
+      17.2rem 0rem 7.92rem -11.2rem #ebebeb inset,
+      -17.2rem 0rem 7.92rem -11.2rem #ebebeb inset
+    )
+  ),
+
+  // Sombras de imágenes
+  img: (
+    // Sombra interna en tarjetas de animales
+    sh-in-animal: 0rem 0rem 5rem 3rem #ebebeb inset // (idem)
+  )
+);
+
+

@@ -1,0 +1,94 @@
+@mixin grid(
+  $columns: 1,
+  $rows: auto,
+  $gap: 0,
+  $columnGap: null,
+  $rowGap: null
+) {
+  display: grid;
+  
+  // Si $columns es un número, crear columnas iguales
+  @if type-of($columns) == number {
+    grid-template-columns: repeat($columns, 1fr);
+  }
+  // Si es una lista o string, usar directamente
+  @else {
+    grid-template-columns: $columns;
+  }
+
+  // Manejar filas de manera similar
+  @if type-of($rows) == number {
+    grid-template-rows: repeat($rows, 1fr);
+  }
+  @else {
+    grid-template-rows: $rows;
+  }
+
+  // Manejar gaps
+  @if $columnGap and $rowGap {
+    gap: $rowGap $columnGap;
+  } @else {
+    gap: $gap;
+  }
+}
+
+// Mixin para posicionamiento de elementos en el grid
+@mixin grid-position(
+  $row-start: auto,
+  $row-end: auto,
+  $column-start: auto,
+  $column-end: auto
+) {
+  grid-column: #{$column-start} / #{$column-end};
+  grid-row: #{$row-start} / #{$row-end};
+}
+
+// Mixins para layouts comunes
+@mixin grid-auto-fit($min-size: 250px, $gap: 1rem) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(auto-fit, minmax($min-size, 1fr));
+}
+
+@mixin grid-auto-fill($min-size: 250px, $gap: 1rem) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(auto-fill, minmax($min-size, 1fr));
+}
+
+
+
+@mixin grid-responsive-infinite(
+  $min-column-size: 250px,
+  $row-height: auto,
+  $gap: 1rem
+) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(auto-fit, minmax($min-column-size, 1fr));
+  grid-auto-rows: $row-height;
+}
+
+
+// 
+// 
+// 
+// 
+// 
+
+@mixin flexbox(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $wrap: nowrap,
+  $gap: 0,
+  $vertical: baseline
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  gap: $gap;
+  vertical-align: $vertical;
+}

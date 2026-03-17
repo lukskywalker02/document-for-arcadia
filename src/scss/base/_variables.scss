@@ -1,0 +1,49 @@
+// _variables.scss
+@forward './color'; // Importa el mapa de colores con alias "c"
+@forward './typography'; // Importa el mapa de colores con alias "c"
+@forward './shadows';
+@forward './fonts';  // Importa el mapa de fuentes con alias "f"
+@forward './font-sizes';  // Importa el mapa de fuentes con alias "f"
+
+
+// Importar variables y funciones globales
+// @use 'base/functions';
+// @use 'base/mixins';
+
+// Reset CSS y estilos globales
+// @use 'base/reset';
+// @use 'base/global';
+
+// Tipografía
+// @use 'base/typography';
+
+// Sistema de grid
+// @use 'base/grid';
+
+// Layout (header, footer, sidebar)
+// @use 'layout/header';
+// @use 'layout/footer';
+// @use 'layout/sidebar';
+// @use 'layout/grid-system';
+
+// Componentes (botones, tarjetas, etc.)
+// @use 'components/buttons';
+// @use 'components/cards';
+// @use 'components/modals';
+// @use 'components/forms';
+// @use 'components/tables';
+// @use 'components/badges';
+
+// Estilos de páginas específicas
+// @use 'pages/home';
+// @use 'pages/about';
+// @use 'pages/contact';
+
+// Temas (dark y light)
+// @use 'themes/light-theme';
+// @use 'themes/dark-theme';
+
+// Librerías de terceros (vendors)
+// @use 'vendors/bootstrap';
+// @use 'vendors/fontawesome';
+// @use 'vendors/animations';

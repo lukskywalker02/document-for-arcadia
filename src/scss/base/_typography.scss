@@ -1,0 +1,590 @@
+// typography
+@use "fonts" as f;
+@use "color" as c;
+@use "shadows" as sh;
+@use "font-sizes" as s;
+
+@mixin menu() {
+  font-size: map-get(s.$font-sizes, menu-font);
+  color: map-get(map-get(c.$color, "solid-colors"), c-light);
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    "menu-font"
+  );
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@mixin heading() {
+  font-size: map-get(map-get(s.$font-sizes, "headings"), main-heading);
+  color: map-get(map-get(c.$color, "solid-colors"), "c-dark");
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    "h1-font"
+  );
+  text-shadow: map-get(map-get(sh.$shadows, "texts"), "h1-shadow");
+}
+
+@mixin button() {
+  color: map-get(map-get(c.$color, "solid-colors"), c-light);
+  font-size: map-get(map-get(s.$font-sizes, "other-texts"), text-button);
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    button-font
+  );
+  text-decoration: none;
+  border-style: none;
+  text-transform: uppercase;
+  width: fit-content;
+  height: fit-content;
+}
+
+@mixin title-section() {
+  font-size: map-get(map-get(s.$font-sizes, "headings"), title-main-cards);
+  color: map-get(map-get(c.$color, "solid-colors"), "c-dark");
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    "h2-font"
+  );
+  letter-spacing: map-get(
+    map-get(s.$font-spaces, "letter-spacings"),
+    ls-title-main-cards
+  );
+  text-transform: uppercase;
+}
+
+@mixin desc-section() {
+  font-size: map-get(map-get(s.$font-sizes, "other-texts"), p-in-cards);
+  color: map-get(map-get(c.$color, "solid-colors"), c-light);
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    "paragraph-font"
+  );
+  text-shadow: map-get(map-get(sh.$shadows, texts), sh-desc-section);
+  text-transform: uppercase;
+  padding: 0.5rem;
+}
+
+// ✨
+
+@mixin title-caption-car() {
+  font-size: calc(map-get(map-get(s.$font-sizes, "headings"), filter-headings) - 0.358rem);
+  color: map-get(map-get(c.$color, "solid-colors"), c-light);
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    "h4-font"
+  );
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+}
+
+@mixin desc-caption-car() {
+  font-size: calc(map-get(map-get(s.$font-sizes, "other-texts"), p-testimony) - 0.358rem);
+  color: map-get(map-get(c.$color, "solid-colors"), c-light);
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    paragraph-font
+    );
+    text-transform: initial;
+    padding: 1rem 6rem;
+}
+
+// ✨
+
+@mixin testimony-title() {
+  font-family: map-get(map-get(f.$path-fonts-formats, "family-font"), h3-font);
+  font-size: map-get(
+    map-get(s.$font-sizes, "other-texts"),
+    name-testimony-user
+  );
+
+  text-transform: uppercase;
+}
+
+@mixin ia-animal() {
+  text-transform: uppercase;
+  font-size: calc(map-get(map-get(s.$font-sizes, "headings"), titles-cards-animal) - 0.358rem);
+  font-family: map-get(map-get(f.$path-fonts-formats, "family-font"), h2-font);
+  color: map-get(map-get(c.$color, solid-colors), c-mustard-title);
+}
+
+@mixin th() {
+  text-transform: capitalize;
+  font-size: calc(map-get(map-get(s.$font-sizes, other-texts), request-info-data-card) - 0.358rem);
+  font-family: map-get(map-get(f.$path-fonts-formats, "family-font"), paragraph-font);
+}
+
+
+
+@mixin oo-animal() {
+  font-family: map-get(map-get(f.$path-fonts-formats, "family-font"), h3-font);
+  // color: red;
+  text-transform: capitalize;
+  font-size: calc(
+    map-get(map-get(s.$font-sizes, "headings"), titles-cards-animal) - 0.358rem
+  );
+}
+
+@mixin pagination() {
+  font-size: calc(
+    map-get(map-get(s.$font-sizes, "other-texts"), name-testimony-user)
+  );
+
+  text-decoration: none;
+}
+
+@mixin ad-description() {
+  font-size: calc(
+    map-get(map-get(s.$font-sizes, "other-texts"), request-info-data-card) -
+      0.3rem
+  );
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    paragraph-font
+  );
+}
+
+@mixin banner-title() {
+  font-size: calc(
+    map-get(map-get(s.$font-sizes, "headings"), filter-headings));
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    h2-font
+  );
+  color: map-get(map-get(c.$color, solid-colors), c-mustard-title);
+}
+
+@mixin banner-description() {
+  font-size: calc(
+    map-get(s.$font-sizes, menu-font) - 0.5rem);
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    h4-font
+  );
+  color: map-get(map-get(c.$color, solid-colors), c-light);
+}
+
+// typography
+html,
+body {
+  font-family: map-get(
+    map-get(f.$path-fonts-formats, "family-font"),
+    normal-font
+  );
+}
+
+
+.carousel-caption {
+  h4 {
+    @include title-caption-car();
+  }
+  
+  p {
+    
+    @include desc-caption-car();
+  }
+}
+
+
+// nav style typography
+.nav {
+  &__link {
+    // font-size: map-get(s.$font-sizes, menu-font);
+    // color: map-get(map-get(c.$color, "solid-colors"), c-light);
+    // font-family: map-get(map-get(f.$path-fonts-formats, "family-font"), "menu-font");
+
+    @include menu();
+
+    &--active {
+      font-size: calc(map-get(s.$font-sizes, menu-font) + 0.5rem);
+      color: map-get(map-get(c.$color, "solid-colors"), "c-hgl-hover");
+    }
+
+    &:hover {
+      color: map-get(
+        map-get(c.$color, "solid-colors"),
+        "c-hgl-hover"
+      ); // Amarillo
+      font-family: map-get(
+        map-get(f.$path-fonts-formats, "family-font"),
+        h2-font
+      );
+    }
+  }
+}
+// nav style typography
+
+.navbar-toggler-icon {
+  font-size: map-get(map-get(s.$font-sizes, "headings"), bars);
+}
+
+// main h1 style typography
+.hero {
+  font-size: unset;
+
+  &__title,
+  &__subtitle {
+    @include heading();
+  }
+
+  &__subtitle {
+    // line-height: map-get(
+    //   map-get(s.$font-spaces, "line-heights"),
+    //   lh-p-main-heading
+    // ); /* 148.923% */
+    letter-spacing: map-get(
+      map-get(s.$font-spaces, "letter-spacings"),
+      ls-p-main-heading
+    );
+  }
+}
+// main h1 style typography
+
+// all buttons
+.intro__button {
+  @include button();
+
+  // button from header redirecting to footer
+  &--hours {
+    background-color: map-get(
+      map-get(c.$color, "solid-colors"),
+      c-button-footer
+    );
+
+    &:hover {
+      filter: invert(1);
+      background-color: map-get(
+        map-get(c.$color, "solid-colors"),
+        c-button-footer
+      );
+      -webkit-filter: invert(1);
+      color: map-get(map-get(c.$color, "solid-colors"), c-light);
+    }
+  }
+  // button from header redirecting to footer
+
+  // button form send
+  &--send {
+    background-color: map-get(map-get(c.$color, "solid-colors"), c-highlight-2);
+    color: map-get(map-get(c.$color, "solid-colors"), c-dark);
+
+    &:hover {
+      color: map-get(map-get(c.$color, "solid-colors"), c-dark);
+      filter: invert(1);
+      background-color: map-get(
+        map-get(c.$color, "solid-colors"),
+        c-highlight-2
+      );
+      -webkit-filter: invert(1);
+    }
+  }
+  // button form send
+
+  // button more info
+  &--more {
+    background-color: map-get(map-get(c.$color, "solid-colors"), c-button-more);
+    &:hover {
+      color: map-get(map-get(c.$color, "solid-colors"), c-light);
+      background-color: map-get(
+        map-get(c.$color, "solid-colors"),
+        c-button-more
+      );
+      filter: invert(1);
+      -webkit-filter: invert(1);
+    }
+  }
+  // button more info
+}
+// all buttons
+
+
+.k-about__content-title {
+  @include banner-title();
+}
+
+.k-about__content-description {
+  @include banner-description();
+}
+
+
+// main section with cards
+.intro {
+  // titles cards
+
+  &__link {
+    text-decoration: none;
+    color: map-get(map-get(c.$color, "solid-colors"), "c-dark");
+  }
+
+  &__title {
+    @include title-section();
+  }
+  // titles cards
+
+  // paragraph in cards
+  &__description {
+    @include desc-section();
+  }
+  // paragraph in cards
+
+  &__name {
+    letter-spacing: map-get(
+      map-get(s.$font-spaces, letter-spacings),
+      ls-title-testimony
+    );
+    font-size: map-get(map-get(s.$font-sizes, "headings"), name-animal);
+
+    & ~ * {
+      font-size: map-get(map-get(s.$font-sizes, "other-texts"), rest-animal);
+      margin: unset;
+    }
+  }
+}
+// main section with cards
+
+// pagination
+
+.pagination {
+  &__link,
+  &__link ~ span {
+    @include pagination();
+  }
+}
+
+// pagination
+
+// section testimony
+.testimony {
+  // title testimony
+  &__title {
+    @include testimony-title();
+
+    &--shown {
+      text-transform: uppercase;
+    }
+
+    &--feedback {
+      text-transform: capitalize;
+    }
+  }
+  // title testimony
+
+  // user pseudo name
+  &__user {
+    @include testimony-title();
+  }
+  // user pseudo name
+
+  // stars in testimony
+  &__rating {
+    font-size: map-get(
+      map-get(s.$font-sizes, "other-texts"),
+      name-testimony-user
+    );
+  }
+  // stars in testimony
+
+  // paragraph testimony
+  &__text {
+    font-size: map-get(map-get(s.$font-sizes, "other-texts"), p-testimony);
+  }
+  // paragraph testimony
+
+  &__stars,
+  &__label {
+    font-size: map-get(map-get(s.$font-sizes, "other-texts"), filter-form);
+  }
+
+  &__input {
+    height: calc(
+      map-get(map-get(s.$font-sizes, "other-texts"), filter-form) + 1.7rem
+    );
+    font-size: calc(
+      map-get(map-get(s.$font-sizes, "other-texts"), filter-form) - 0.2rem
+    );
+  }
+
+  &__textarea {
+    font-size: calc(
+      map-get(map-get(s.$font-sizes, "other-texts"), filter-form) - 0.1rem
+    );
+
+    &::placeholder {
+      color: grey;
+      font-size: calc(
+        map-get(map-get(s.$font-sizes, "other-texts"), filter-form) - 0.2rem
+      );
+    }
+  }
+}
+
+// section testimony
+
+// body write testimony
+// section write testimony
+
+.offcanvas-title {
+  font-size: calc(clamp(1.8rem, 1.6129vw + 1rem, 2.4rem) + 0.5rem);
+}
+
+.filter {
+  // height: 100%;
+
+  .navbar-toggler-icon {
+    font-size: map-get(map-get(s.$font-sizes, headings), filter-headings);
+  }
+
+  font-size: map-get(map-get(s.$font-sizes, headings), filter-headings);
+
+  &__legend,
+  &__legend ~ label,
+  &__legend ~ input,
+  &__fieldset select option,
+  &__legend ~ select {
+    padding: 0.5rem;
+    text-transform: capitalize;
+  }
+
+  &__legend {
+    // background-color: red;
+    font-size: map-get(map-get(s.$font-sizes, headings), filter-headings);
+  }
+
+  &__legend ~ label,
+  &__legend ~ input {
+    font-size: map-get(map-get(s.$font-sizes, other-texts), filter-form);
+  }
+
+  &__fieldset select option {
+    font-size: calc(
+      map-get(map-get(s.$font-sizes, other-texts), filter-form) - 0.058rem
+    );
+    overflow-y: visible;
+  }
+
+  &__legend ~ select {
+    font-size: calc(
+      map-get(map-get(s.$font-sizes, other-texts), filter-form) - 0.2rem
+    );
+  }
+  &__button {
+    margin-top: auto;
+  }
+}
+
+.contact {
+  &__form-section {
+    font-size: map-get(map-get(s.$font-sizes, other-texts), filter-form);
+  }
+
+  &__title {
+    font-size: calc(
+      map-get(map-get(s.$font-sizes, other-texts), filter-form) + 1.358rem
+    );
+  }
+
+  &__header {
+    span {
+      color: #c1c1c1;
+      text-align: center;
+
+      /* Desk/forgot-password */
+      font-size: map-get(s.$font-sizes, astuce);
+
+      &:hover {
+        color: map-get(map-get(c.$color, solid-colors), c-hgl-hover);
+      }
+    }
+  }
+}
+
+
+.login {
+  &__form-section {
+    font-size: map-get(map-get(s.$font-sizes, other-texts), filter-form);
+  }
+
+  &__title {
+    font-size: calc(
+      map-get(map-get(s.$font-sizes, other-texts), filter-form) + 1.358rem
+    );
+  }
+
+  a {
+    span {
+      color: #c1c1c1;
+      text-align: center;
+
+      /* Desk/forgot-password */
+      font-size: map-get(s.$font-sizes, astuce);
+      &:hover {
+        color: map-get(map-get(c.$color, solid-colors), c-hgl-hover);
+      }
+    }
+
+    
+  }
+}
+
+.animal {
+  &__info > h2,
+  &__about > h2 {
+    @include ia-animal();
+  }
+
+  &__observation > h2,
+  &__optional > h2 {
+    @include oo-animal();
+  }
+
+  &__description {
+    @include ad-description();
+  }
+
+  .animal__header,
+  .animal__data {
+    @include th();
+  }
+}
+
+.footer {
+  &__hours {
+    // background-color: red;
+
+    &-title {
+      // background-color: palegreen;
+      font-size: calc(
+        map-get(map-get(s.$font-sizes, "footer-texts"), f-tertiary) + 0.1rem
+      );
+    }
+
+    &-table {
+      font-size: map-get(map-get(s.$font-sizes, "footer-texts"), f-tertiary);
+    }
+  }
+
+  &__location {
+    // background-color: thistle;
+
+    &-details {
+      // background-color: cornflowerblue;
+      font-size: calc(
+        map-get(map-get(s.$font-sizes, "footer-texts"), f-tertiary) + 0.3rem
+      );
+    }
+
+    & div:nth-child(2) {
+      // background-color: darkorchid;
+    }
+  }
+
+  &__copyright {
+    font-size: map-get(map-get(s.$font-sizes, "footer-texts"), f-copy);
+    background-color: map-get(map-get(c.$color, "solid-colors"), c-light);
+    padding: calc(
+      map-get(map-get(s.$font-sizes, "footer-texts"), f-copy) - 0.5rem
+    );
+
+    text-align: center;
+  }
+}

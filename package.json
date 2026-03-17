@@ -1,0 +1,50 @@
+{
+  "name": "zoo-arcadia",
+  "version": "1.0.0",
+  "description": "ECF à présenter devant le jury",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "css": "gulp compileCss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dumitrusf/zoo-Arcadia.git"
+  },
+  "author": "Dumitru Stefan-Fernando dumitrulovelace@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dumitrusf/zoo-Arcadia/issues"
+  },
+  "homepage": "https://github.com/dumitrusf/zoo-Arcadia#readme",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "cssnano": "^4.1.11",
+    "datatables.net": "^2.3.4",
+    "datatables.net-bs5": "^2.3.4",
+    "del": "^8.0.0",
+    "gulp": "^5.0.1",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cache": "^1.1.3",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-dart-sass": "^1.1.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser-js": "^5.2.2",
+    "gulp-webp": "^4.0.1",
+    "jquery": "^3.7.1",
+    "sass": "^1.89.2",
+    "terser": "^5.43.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
+    "normalize.css": "^8.0.1"
+  }
+}

@@ -1,0 +1,120 @@
+@use "../base/variables" as v;
+@use "../base/mixin-responsive" as m;
+@use "../base/mixin-grid-flex" as mgf;
+
+.testimony {
+
+  @include mgf.flexbox(column, space-around, center);
+  
+  &__header {
+    @include mgf.flexbox(row, space-between);
+  }
+
+  &__text {
+    text-align: start;
+    word-break: keep-all;
+  }
+
+  &__item,
+  &__form {
+    border: 0.5rem solid map-get(map-get(v.$color, solid-colors), c-highlight-2);
+    background-color: map-get(map-get(v.$color, solid-colors), c-light);
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+  }
+
+  &__form {
+    border: 0.5rem solid map-get(map-get(v.$color, solid-colors), c-highlight-1);
+  }
+
+  &__field {
+    margin: 1.5rem 1.6rem;
+    padding: 0;
+
+    @include m.responsive(tablet) {
+      margin: 1.5rem 3.3rem;
+    }
+    @include m.responsive(desk) {
+      margin: 1.5rem 4.7rem;
+    }
+  }
+
+  &__container {
+    @include m.responsive(tablet) {
+      width: min(70.1rem, 100vw);
+    }
+    @include m.responsive(desk) {
+      width: min(98.6rem, 100vw);
+    }
+
+    
+    
+  }
+
+  &__feedback {
+    margin: 3rem auto;
+  }
+  &__rating-group {
+    width: -webkit-fill-available;
+    @include mgf.flexbox(row-reverse);
+  }
+  &__stars {
+    margin-left: auto;
+  }
+
+  &__button {
+    margin: 0 auto;
+  }
+  
+}
+
+.intro__button--send {
+  margin-top: 1rem;
+}
+
+.intro__button--send,
+.testimony__input,
+.testimony__textarea {
+  width: -webkit-fill-available;
+}
+
+.testimony__input,
+.testimony__textarea {
+  margin-top: 0.5rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.testimony__textarea {
+  resize: none;
+  field-sizing: content;
+
+  max-height: 20rem;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 3.6rem;
+  height: 3.6rem;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  position: unset;
+
+  opacity: 1;
+}
+
+.carousel-inner ~ div {
+  margin: 3rem 0;
+  @include mgf.flexbox(auto, space-around);
+
+  
+}

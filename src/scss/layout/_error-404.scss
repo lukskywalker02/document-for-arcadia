@@ -1,0 +1,73 @@
+@use "../base/variables" as v;
+@use "../base/mixin-responsive" as m;
+@use "../base/mixin-grid-flex" as mgf;
+
+body.body-404 {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+
+    @include mgf.flexbox(column, center, center);
+    
+    
+    height: 100vh;
+    background-color: #ebebeb;
+    color: #000000;
+}
+
+.error-page {
+    text-align: center;
+    max-width: 60rem;
+    margin: auto;
+    
+    &__title {
+        font-size: 8rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #dc3545;
+    }
+    
+    &__message {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    &__suggestion {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    &__nav {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    &__link {
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 0.5rem;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: 0.5rem;
+        -ms-border-radius: 0.5rem;
+        -o-border-radius: 0.5rem;
+}
+    
+    &__link.btn-primary {
+        background-color: #007bff;
+    }
+    
+    &__link.btn-secondary {
+        background-color: #6c757d;
+    }
+    
+    &__image {
+        margin-top: 2rem;
+    }
+    
+    &__image img {
+        max-width: 100%;
+        height: auto;
+    }
+}

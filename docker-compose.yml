@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # Servicio de PHP con Apache
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zoo-arcadia-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/html/public
+      - ./App:/var/www/html/App
+      - ./includes:/var/www/html/includes
+      - ./config.php:/var/www/html/config.php
+      - ./.env:/var/www/html/.env
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_NAME=zoo_arcadia
+      - DB_USER=zoo_user
+      - DB_PASS=zoo_password
+    networks:
+      - zoo-network
+
+  # Servicio de MySQL
+  db:
+    image: mariadb:11.4  # Cambiado de mysql:8.0 a mariadb
+    container_name: zoo-arcadia-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: zoo_arcadia
+      MYSQL_USER: zoo_user
+      MYSQL_PASSWORD: zoo_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d
+    networks:
+      - zoo-network
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  # Servicio para compilar assets (Node.js/Gulp)
+  # Opcional: solo si necesitas compilar SCSS/JS
+  # node:
+  #   image: node:18-alpine
+  #   container_name: zoo-arcadia-node
+  #   working_dir: /app
+  #   volumes:
+  #     - .:/app
+  #   command: sh -c "npm install && npx gulp"
+  #   networks:
+  #     - zoo-network
+
+volumes:
+  mysql_data:
+
+networks:
+  zoo-network:
+    driver: bridge
+

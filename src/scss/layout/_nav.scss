@@ -1,0 +1,83 @@
+@use "../base/variables" as v;
+@use "../base/mixin-responsive" as m;
+@use "../base/mixin-grid-flex" as mgf;
+
+.nav {
+  bottom: 0;
+  left: 0;
+  background-color: map-get(map-get(v.$color, cover-img), cover-black);
+  backdrop-filter: map-get(map-get(v.$color, blur), blur);
+
+  z-index: 999;
+
+  border-radius: 1rem 1rem 0 0;
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
+
+  &__items {
+    @include mgf.flexbox(column, space-between, start);
+    // background-color: blue;
+    @include m.responsive(desk) {
+      @include mgf.flexbox(row, space-between, center, nowrap, 2.187rem);
+    }
+  }
+  
+  &__m-flex {
+    
+    @include mgf.flexbox(row, space-between, center);
+    @include m.responsive(desk) {
+      display: none;
+    }
+  }
+
+  &__menu--desk {
+    display: none;
+  }
+
+  @include m.responsive(tablet) {
+    border-radius: 0 0 1rem 1rem;
+    -webkit-border-radius: 0 0 1rem 1rem;
+    -moz-border-radius: 0 0 1rem 1rem;
+    -ms-border-radius: 0 0 1rem 1rem;
+    -o-border-radius: 0 0 1rem 1rem;
+
+    bottom: unset;
+    top: 0;
+  }
+
+  @include m.responsive(desk) {
+    top: 0.1rem;
+    // background-color: red;
+    left: calc(50vw - 37.2rem);
+    .bar {
+      display: none !important;
+    }
+
+    .collapse:not(.show) {
+      display: flex;
+    }
+  }
+
+  @include m.responsive(desk) {
+    &__menu--desk {
+      @include mgf.flexbox(row-reverse, space-around, center, nowrap, middle);
+      height: 4.2rem;
+      width: 100%;
+    }
+  }
+
+  @include m.responsive(desk) {
+    border-radius: 2.5rem 2.5rem;
+    -webkit-border-radius: 2.5rem 2.5rem;
+    -moz-border-radius: 2.5rem 2.5rem;
+    -ms-border-radius: 2.5rem 2.5rem;
+    -o-border-radius: 2.5rem 2.5rem;
+  }
+}
+
+.panda__logo {
+  filter: map-get(map-get(v.$color, blur), blur-panda);
+  -webkit-filter: map-get(map-get(v.$color, blur), blur-panda);
+}

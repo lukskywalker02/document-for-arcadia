@@ -1,0 +1,43 @@
+// font sizes in clamp
+$font-sizes: (
+  headings: (
+    main-heading: clamp(2.2rem, 2.160vw + 1rem, 3.4rem),
+    title-main-cards: clamp(2rem, 2.01619vw + 1rem, 3.1rem),
+    name-animal: clamp(2rem, 1.5466vw + 1rem, 2.3rem),
+    filter-headings: clamp(1.8rem, 1.6129vw + 1rem, 2.4rem),
+    titles-cards-animal: clamp(2rem, 1.6129vw + 1rem, 2.6rem),
+    ),
+    other-texts: (
+    rest-animal: clamp(1.6rem, 1.0081vw + 1rem, 1.9rem ),
+    p-in-cards: clamp(1.9rem, 1.885vw + 1rem, 2.6rem),
+    name-testimony-user: clamp(1.8rem, 1.6129vw + 1rem, 2.6rem),
+    p-testimony: clamp(1.4rem, 0.80645vw + 1rem, 1.8rem),
+    text-button: clamp(1.4rem, 1.222vw + 0.7rem, 2rem),
+    filter-form: clamp(1.6rem, 1.34409vw + 1rem, 2.2rem),
+    request-info-data-card: clamp(1.6rem, 1.34409vw + 1rem, 2.2rem),
+  ),
+
+  footer-texts: (
+    f-tertiary: clamp(1.3rem, 0.675vw + 1rem, 1.7rem),
+    f-copy: clamp(0.7rem, 1.07527vw + 0.4rem, 1.6rem),
+  ),
+  menu-font: clamp(1.4rem, 1.875vw + 1rem, 1.8rem),
+  pagination: clamp(11.4rem, 29.974vw, 27.4rem),
+  astuce: clamp(1.1rem, 2.974vw, 1.6rem)
+  // pagination-font:
+  
+);
+
+$font-spaces: (
+  line-heights: (
+    // No se aplica line-height
+    lh-p-main-heading: 9.273rem,
+    // No se aplica line-height
+  ),
+
+  letter-spacings: (
+    ls-p-main-heading: 0.308rem,
+    ls-title-main-cards: 1.1rem,
+    ls-title-testimony: 0.2rem,
+  ),
+);

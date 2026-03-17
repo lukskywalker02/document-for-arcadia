@@ -1,0 +1,29 @@
+# Dependencies (install with npm/composer)
+/node_modules
+/vendor
+
+# Environment variables (SECURITY RISK - NEVER UPLOAD)
+/.env
+/.env.local
+/.env.*.local
+
+# Documentation and private notes
+/docs/*
+# We can whitelist specific docs if needed:
+# !/docs/README_ARQUITECTURA.md
+
+# Editor/IDE settings (keep .cursor if you want, ignored others)
+/.vscode
+/.idea
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log
+
+# NOTE: /public/build/ is NOT ignored so CSS/JS are uploaded for easier deployment
